@@ -1,0 +1,7 @@
+name: DartPad tasks for embedding
+mode: dart
+files:
+  - name: main.dart
+  - name: test.dart
+  - name: solution.dart
+  - name: hint.txt
