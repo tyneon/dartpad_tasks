@@ -1,16 +1,17 @@
-// Это вариант решения задачи -- работающий код!
-void func() {
-  for (int i = 0; i < 5; i++) {
-    print('hello ${i + 1}');
-  }
+// Функция возвращает всех именинников из заданной структуры
+// за заданный день в году
+Set<String> getAllBirthdaysForDay(dynamic birthdays, String month, int day) {
+  final data = birthdays as Map<String, Map<dynamic, dynamic>>;
+  return data[month]![day] ?? <String>{};
 }
 
-// Вы всегда можете посмотреть solution для задания,
-// и никто об этом не узнает!
-// Но всегда лучше сначала постараться решить задание самостоятельно.
-
-// То, что в solution указан именно этот код, не значит,
-// что это единственно верное решение. Например,
-// функцию func можно оставить с возвращаемым значением int,
-// просто вернуть какое-то числовое значение в конце.
-// А переменную i можно также объявить до цикла for.
+// Функция возвращает именинников из заданной структуры
+// за заданный месяц
+Set<String> getAllBirthdaysForMonth(dynamic birthdays, String month) {
+  final data = birthdays as Map<String, Map<dynamic, dynamic>>;
+  var results = <String>{};
+  for (final item in data[month]!.values) {
+    results.addAll(item);
+  }
+  return results;
+}
