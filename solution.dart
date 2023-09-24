@@ -1,16 +1,9 @@
-// Это вариант решения задачи -- работающий код!
-void func() {
-  for (int i = 0; i < 5; i++) {
-    print('hello ${i + 1}');
-  }
+class TestTaker {
+  final String name;
+  final int variant;
+  TestTaker(this.name, this.variant);
 }
 
-// Вы всегда можете посмотреть solution для задания,
-// и никто об этом не узнает!
-// Но всегда лучше сначала постараться решить задание самостоятельно.
-
-// То, что в solution указан именно этот код, не значит,
-// что это единственно верное решение. Например,
-// функцию func можно оставить с возвращаемым значением int,
-// просто вернуть какое-то числовое значение в конце.
-// А переменную i можно также объявить до цикла for.
+List<TestTaker> getTestTakers(List<String> names, int maxVariant) => names
+    .map((name) => TestTaker(name, names.indexOf(name) % maxVariant + 1))
+    .toList();
