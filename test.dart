@@ -39,5 +39,5 @@ void main() {
       return;
     }
   }
-  __result(true, []);
+  _result(true, []);
 }
