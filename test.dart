@@ -3,6 +3,8 @@ import 'dart:math';
 const EPS = 1e-6;
 
 void main() {
+  test_progression();
+
   final List<({int n, num first, num Function(num) func})> tests = [
     (n: 5, first: 1, func: (x) => x + 2),
     (n: 5, first: 65536, func: (x) => sqrt(x)),

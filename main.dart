@@ -20,7 +20,7 @@ void progression({
   }
 }
 
-void main() {
+void test_progression() {
   // Текущее использование функции progression:
   progression(n: 5, func: (x) => x + 2);
 

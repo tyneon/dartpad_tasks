@@ -20,7 +20,7 @@ List<num> progression({
   return [first, ...progression(n: n - 1, first: func(first), func: func)];
 }
 
-void main() {
+void test_progression() {
   // Текущее использование функции progression:
   // progression(n: 5, func: (x) => x + 2);
 
