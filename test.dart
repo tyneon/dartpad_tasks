@@ -1,7 +1,11 @@
 const EPS = 1e-6;
 
 void main() {
-  test_progression();
+  testProgression();
+  if (progression.runtimeType.toString().endsWith('=> List<num>') == false) {
+    _result(false, ["Функция возвращает некорректный тип данных"]);
+    return;
+  }
 
   final List<({int n, num first, num Function(num) func})> tests = [
     (n: 5, first: 1, func: (x) => x + 2),
