@@ -7,7 +7,7 @@
 // Перепишите функцию progression,
 // чтобы она возвращала список вычисленных элементов.
 
-void progression({
+List<num> progression({
   int n = 1,
   num first = 1,
   required num Function(num) func,
@@ -16,6 +16,9 @@ void progression({
   if (n > 1) {
     progression(n: n - 1, first: func(first), func: func);
   }
+
+  // Это сделано чтобы не ругался компилятор DartPad ;)
+  return [];
 }
 
 void testProgression() {

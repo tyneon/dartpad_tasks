@@ -2,10 +2,6 @@ const EPS = 1e-6;
 
 void main() {
   testProgression();
-  if (progression.runtimeType.toString().endsWith('=> List<num>') == false) {
-    _result(false, ["Функция возвращает некорректный тип данных"]);
-    return;
-  }
 
   final List<({int n, num first, num Function(num) func})> tests = [
     (n: 5, first: 1, func: (x) => x + 2),
@@ -15,26 +11,22 @@ void main() {
   ];
 
   for (final test in tests) {
-    List<num> res = [];
     try {
-      final part = progression(n: test.n, first: test.first, func: test.func);
-      // Protection from JavaScript compilation error
-      if (part is List<num>) {
-        res = part;
-      }
-      if (res.length != test.n) {
+      final List<num> part =
+          progression(n: test.n, first: test.first, func: test.func);
+      if (part.length != test.n) {
         _result(false,
             ["Длина полученной последовательности не совпадает с заданной"]);
         return;
       }
-      if (res.first != test.first) {
+      if (part.first != test.first) {
         _result(false, [
           "Первый элемент полученной последовательности не совпадает с заданным"
         ]);
         return;
       }
       for (int i = 1; i < test.n; i++) {
-        if ((res[i] - test.func(part[i - 1])).abs() > EPS) {
+        if ((part[i] - test.func(part[i - 1])).abs() > EPS) {
           _result(false, [
             "Один или более элементов полученной последовательности некорректны"
           ]);
