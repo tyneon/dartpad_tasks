@@ -12,8 +12,10 @@ void main() {
 
   for (final test in tests) {
     try {
+      print("\ntest ${tests.indexOf(test)}:");
       final List<num> part =
           progression(n: test.n, first: test.first, func: test.func);
+      print(part);
       if (part.length != test.n) {
         _result(false,
             ["Длина полученной последовательности не совпадает с заданной"]);
